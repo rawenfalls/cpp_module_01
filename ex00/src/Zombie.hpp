@@ -15,17 +15,24 @@
 
 #include <iostream>
 #include <string> //std::string
-#include <iomanip> // set
-#include <sstream> // std::stringstream
+//#include <sstream> // std::stringstream
 
 
 class Zombie
 {	
 	public:
-	void announce(void)
+	//Constructor
+	Zombie(std::string s);
+	//Destructor
+	~Zombie();
+	//Public methods
+	void announce(void)const;
 
 	private:
-		std::string name;
+		std::string _name;
 };
+
+Zombie *newZombie(std::string name);
+void randomChump(std::string name);
 
 #endif

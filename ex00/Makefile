@@ -1,22 +1,22 @@
-NAME = phonebook
+NAME = zombie
 
 CLFAGS = -Wall -Wextra -Werror -std=c++98
 CC = c++
 RM = rm -f
+RMR = rm -rf
 
 PREF_SRC = ./src/
 PREF_OBJ = ./obj/
 
 
-#SRCS = megaphone.cpp
-HEADER = $(PREF_SRC)phonebook.hpp
+HEADER = $(PREF_SRC)Zombie.hpp
 SRCS = $(wildcard $(PREF_SRC)*.cpp)
 OBJS = $(SRCS:$(PREF_SRC)%.cpp=$(PREF_OBJ)%.o)
 
 all: $(NAME)
 		@echo "Make done"
 
-$(NAME): $(shell mkdir -p obj) $(OBJS)
+$(NAME): $(shell mkdir obj) $(OBJS)
 		$(CC) $(CLFAGS) $(OBJS) -o $(NAME)
 
 $(PREF_OBJ)%.o: $(PREF_SRC)%.cpp $(HEADER)
@@ -28,6 +28,7 @@ clean:
 
 fclean: clean
 		$(RM) $(NAME)
+		$(RMR) obj
 		@echo "Make fclean done"
 
 re: fclean all
